@@ -33,71 +33,76 @@ LCN Recruitment Portal is a responsive job search and recruitment management app
 ## Project Structure
 
 ```text
+## Project Structure
+
+```text
 jprms/
 ├── src/
 │   ├── api/
-│   │   ├── axiosClient.js              # Centralized Axios instance with base URL & error interceptor
-│   │   ├── jobsApi.js                  # getJobs(params), getJobById(id)
-│   │   ├── applicationsApi.js          # getApplications(), createApplication(), updateApplicationStatus()
-│   │   └── savedJobsApi.js             # getSavedJobs(), saveJob(), removeSavedJob()
+│   │   ├── axiosClient.js
+│   │   ├── jobsApi.js
+│   │   ├── applicationsApi.js
+│   │   └── savedJobsApi.js
 │   │
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── Navbar.jsx              # Responsive sticky nav with active link indicators & badges
-│   │   │   └── Footer.jsx              # Portal footer with links, categories & tech stack info
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Footer.jsx
 │   │   │
 │   │   ├── common/
-│   │   │   ├── Button.jsx               # Reusable button with variants, sizes & loading states
-│   │   │   ├── StatusBadge.jsx          # Dynamic status badge with color tokens
-│   │   │   ├── LoadingState.jsx         # Presentational loading spinner & skeleton views
-│   │   │   ├── ErrorState.jsx           # Error banner with retry trigger
-│   │   │   └── EmptyState.jsx           # Empty result message with call-to-action
+│   │   │   ├── Button.jsx
+│   │   │   ├── StatusBadge.jsx
+│   │   │   ├── LoadingState.jsx
+│   │   │   ├── ErrorState.jsx
+│   │   │   └── EmptyState.jsx
 │   │   │
 │   │   ├── jobs/
-│   │   │   ├── JobCard.jsx              # Card showing company, salary, tags, save toggle & link
-│   │   │   ├── CategoryCard.jsx         # Department card routing to /jobs?category=...
-│   │   │   ├── SearchBar.jsx            # Controlled keyword and location search
-│   │   │   └── FilterPanel.jsx          # Controlled filters (type, exp, category, salary, remote)
+│   │   │   ├── JobCard.jsx
+│   │   │   ├── CategoryCard.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   └── FilterPanel.jsx
 │   │   │
 │   │   └── dashboard/
-│   │       ├── DashboardCard.jsx        # Metrics KPI card component
-│   │       └── ApplicationCard.jsx      # Application card with candidate details & status updater
+│   │       ├── DashboardCard.jsx
+│   │       └── ApplicationCard.jsx
 │   │
 │   ├── pages/
-│   │   ├── Home.jsx                     # Landing page with hero, search, categories & featured roles
-│   │   ├── JobsListing.jsx              # Jobs listing with URL query parameter synchronization
-│   │   ├── JobDetails.jsx               # Single job view with full requirements & perks
-│   │   ├── ApplyJob.jsx                 # React Hook Form application submission
-│   │   ├── SavedJobs.jsx                # Bookmarked jobs management
-│   │   ├── MyApplications.jsx           # Joined applications list with status filtering
-│   │   ├── Dashboard.jsx                # Analytics, funnel metrics & recent submissions
-│   │   └── NotFound.jsx                 # 404 fallback page
+│   │   ├── Home.jsx
+│   │   ├── JobsListing.jsx
+│   │   ├── JobDetails.jsx
+│   │   ├── ApplyJob.jsx
+│   │   ├── SavedJobs.jsx
+│   │   ├── MyApplications.jsx
+│   │   ├── Dashboard.jsx
+│   │   └── NotFound.jsx
 │   │
 │   ├── context/
-│   │   └── SavedJobsContext.jsx          # Global saved jobs state & persistence
+│   │   └── SavedJobsContext.jsx
 │   │
 │   ├── hooks/
-│   │   └── useFetch.js                  # Reusable async data fetching hook
+│   │   └── useFetch.js
 │   │
-│   ├── App.jsx                           # Route definitions & shared layout shell
-│   ├── main.jsx                          # React root entry point with BrowserRouter
-│   └── index.css                         # Tailwind CSS imports and base styles
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── screenshots/                          # Application screenshots
-│   ├── homepage.png                      # Home page
-│   ├── jobs.png                          # Job search & filtering
-│   ├── job_details.png                   # Job details page
-│   ├── apply_job.png                     # Job application form
-│   ├── saved_jobs.png                    # Saved jobs page
-│   ├── applications.png                  # Application tracking page
-│   └── dashboard.png                     # Recruitment analytics dashboard
+├── screenshots/
+│   ├── homepage.png
+│   ├── jobs.png
+│   ├── job_details.png
+│   ├── apply_job.png
+│   ├── saved_jobs.png
+│   ├── applications.png
+│   └── dashboard.png
 │
-├── db.json                               # Seed REST API database (jobs, applications, savedJobs)
-├── index.html                            # HTML entry point with Plus Jakarta Sans typography
-├── package.json                          # Project dependencies and run scripts
-├── vite.config.ts                        # Vite config with integrated JSON mock server plugin
-├── .env.example                          # Environment variable template
-└── README.md                             # Documentation & setup instructions
+├── db.json
+├── index.html
+├── package.json
+├── vite.config.ts
+├── .env.example
+└── README.md
+```
+
 ```
 
 ## Getting Started
