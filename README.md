@@ -79,99 +79,138 @@ workpulse/
 │   │   │   ├── Button.jsx          # Reusable button with variants, sizes & loading states
 │   │   │   ├── StatusBadge.jsx     # Dynamic status badge with color tokens
 │   │   │   ├── LoadingState.jsx    # Presentational loading spinner & skeleton views
-│   │   │   ├── ErrorState.jsx      # Error banner with retry trigger
-│   │   │   └── EmptyState.jsx      # Empty result message with call-to-action
-│   │   ├── jobs/
-│   │   │   ├── JobCard.jsx         # Card showing company, salary, tags, save toggle & link
-│   │   │   ├── CategoryCard.jsx    # Department card routing to /jobs?category=...
-│   │   │   ├── SearchBar.jsx       # Controlled keyword and location search
-│   │   │   └── FilterPanel.jsx     # Controlled filters (type, exp, category, salary, remote)
-│   │   └── dashboard/
-│   │       ├── DashboardCard.jsx   # Metrics KPI card component
-│   │       └── ApplicationCard.jsx # Application card with candidate details & status updater
-│   ├── pages/
-│   │   ├── Home.jsx                # Landing page with hero, search, categories & featured roles
-│   │   ├── JobsListing.jsx         # Jobs listing with URL query parameter synchronization
-│   │   ├── JobDetails.jsx          # Single job view with full requirements & perks
-│   │   ├── ApplyJob.jsx            # React Hook Form application submission
-│   │   ├── SavedJobs.jsx           # Bookmarked jobs management
-│   │   ├── MyApplications.jsx      # Joined applications list with status filtering
-│   │   ├── Dashboard.jsx           # Analytics, funnel metrics & recent submissions
-│   │   └── NotFound.jsx            # 404 fallback page
-│   ├── context/
-│   │   └── SavedJobsContext.jsx    # Global saved jobs state & persistence
-│   ├── hooks/
-│   │   └── useFetch.js             # Reusable async data fetching hook
-│   ├── App.jsx                     # Route definitions & shared layout shell
-│   ├── main.jsx                    # React root entry point with BrowserRouter
-│   └── index.css                   # Tailwind CSS imports and base styles
-├── db.json                         # Seed REST API database (jobs, applications, savedJobs)
-├── index.html                      # HTML entry point with Plus Jakarta Sans typography
-├── package.json                    # Project dependencies and run scripts
-├── vite.config.ts                  # Vite config with integrated JSON mock server plugin
-├── .env.example                    # Environment variable template
-└── README.md                       # Documentation & setup instructions
+# LCN Recruitment Portal
+
+LCN Recruitment Portal is a responsive job search and recruitment management application built with React and Vite. It supports job discovery, filtering, bookmarking, applications, recruitment status tracking, analytics, and a local REST-style mock backend.
+
+## Features
+
+- Search jobs by keyword and location.
+- Filter by category, employment type, experience level, and minimum salary.
+- Sort jobs by newest, highest salary, or lowest salary.
+- View detailed job descriptions, requirements, benefits, skills, Indian locations, and salary bands.
+- Display salaries using Indian comma grouping without currency symbols, for example `1,50,000 - 1,85,000`.
+- Save and remove bookmarked jobs with shared application state and local persistence.
+- Submit validated applications with React Hook Form.
+- Track applications by `Applied`, `Under Review`, `Shortlisted`, and `Rejected` status.
+- Update application statuses from the applications page and dashboard.
+- Delete rejected applications after confirmation.
+- View recruitment metrics, pipeline counts, and recent applications on the dashboard.
+- Use retry, loading, and empty states across data-driven screens.
+- Open application routes directly or refresh them without receiving raw API JSON.
+- Use the footer technical-stack summary and educational disclaimer.
+
+## Technology
+
+- React 19
+- Vite 6
+- React Router
+- Tailwind CSS
+- Axios
+- React Hook Form
+- Lucide React
+- JSON Server-compatible mock API powered by Vite middleware
+
+## Project Structure
+
+```text
+src/
+├── api/                 API clients for jobs, applications, and saved jobs
+├── components/
+│   ├── common/          Buttons, states, and status badges
+│   ├── dashboard/       Dashboard metrics and application cards
+│   ├── jobs/            Search, filters, job cards, and categories
+│   └── layout/          Navbar and footer
+├── context/             Saved jobs context and persistence
+├── hooks/               Reusable data-fetching hooks
+├── pages/               Home, jobs, details, applications, and dashboard views
+├── App.jsx              Shared layout and route definitions
+├── index.css            Global styles and Tailwind imports
+└── main.jsx             React entry point
+db.json                  Seed jobs, applications, and saved jobs
+vite.config.ts           Vite configuration and local API middleware
 ```
 
----
+## Getting Started
 
-## 🚀 Getting Started
-
-### 1. Installation
-
-Clone or extract the repository and install dependencies:
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Running JSON Server (Local REST API)
-
-Start the JSON Server on port 5000:
-
-```bash
-npx json-server --watch db.json --port 5000
-# or use the shorthand script:
-npm run server
-```
-
-### 3. Running the React Application
-
-In a separate terminal window, launch the Vite development server:
+### Start the application
 
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:3000` (or the configured host port).
+The development server uses port `3000` by default. If that port is already occupied, Vite automatically selects the next available port and prints the URL in the terminal.
 
----
+### Optional standalone JSON Server
 
-## 🌐 Routes Overview
+The Vite configuration includes the mock API middleware, so a separate backend is normally not required. To run JSON Server independently instead:
 
-| Route | Page | Description |
-|---|---|---|
-| `/` | `Home` | Landing page with Hero search, categories, and featured jobs |
-| `/jobs` | `JobsListing` | Search & filter jobs; synchronized with URL query params |
-| `/jobs/:id` | `JobDetails` | Single job view with complete requirements and benefits |
-| `/apply/:id` | `ApplyJob` | Application form with React Hook Form validation |
-| `/saved-jobs` | `SavedJobs` | List of bookmarked jobs with removal capability |
-| `/applications` | `MyApplications` | Track submitted applications and update statuses |
-| `/dashboard` | `Dashboard` | Analytics, KPI cards, and application pipeline funnel |
-| `*` | `NotFound` | 404 error page with navigation shortcuts |
+```bash
+npm run server
+```
 
----
+The standalone API runs on `http://localhost:5000`.
 
-## 📸 Screenshots (Placeholders)
+## Available Scripts
 
-- **Job Portal Home**: Hero search bar, featured engineering roles, and category tracks.
-- **Jobs Directory**: Side-by-side filter panel and responsive job card results.
-- **Job Details**: Full job requirements, salary bands, and Apply/Save CTAs.
-- **Application Submission**: React Hook Form with real-time field validation.
-- **Recruitment Dashboard**: Application pipeline conversion rates and recent candidates.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run server` | Start JSON Server on port 5000 |
+| `npm run lint` | Run the TypeScript compiler check |
+| `npm run clean` | Remove generated build/server files |
 
----
+## Routes
 
-## 📄 License
+| Route | Description |
+|---|---|
+| `/` | Home page with search, categories, and featured jobs |
+| `/jobs` | Searchable and filterable job directory |
+| `/jobs/:id` | Detailed job information and actions |
+| `/apply/:id` | Validated application form |
+| `/saved-jobs` | Saved job list |
+| `/applications` | Application tracking and status management |
+| `/dashboard` | Recruitment analytics and recent applications |
 
-MIT License. Open for educational and commercial recruitment management use.
+## API Operations
+
+The API client uses these local endpoints:
+
+- `GET /jobs`
+- `GET /jobs/:id`
+- `GET /applications`
+- `POST /applications`
+- `PATCH /applications/:id`
+- `DELETE /applications/:id`
+- `GET /savedJobs`
+- `POST /savedJobs`
+- `DELETE /savedJobs/:id`
+
+Application deletion is exposed in the UI only for applications whose status is `Rejected`.
+
+## GitHub
+
+The project repository is:
+
+https://github.com/chinnamnaidu592/Job-Recruitement-Management-System
+
+Typical workflow for future changes:
+
+```bash
+git add .
+git commit -m "Describe your changes"
+git push
+```
+
+
+## Disclaimer
+
+This website is developed solely for educational and learning purposes. Content featured in regional languages is intended purely for entertainment.
