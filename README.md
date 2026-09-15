@@ -64,7 +64,7 @@ A production-quality, fully responsive Job Portal and Recruitment Management Sys
 ## 📁 Folder Structure
 
 ```
-workpulse/
+jprms/
 ├── src/
 │   ├── api/
 │   │   ├── axiosClient.js          # Centralized Axios instance with base URL & error interceptor
@@ -79,6 +79,39 @@ workpulse/
 │   │   │   ├── Button.jsx          # Reusable button with variants, sizes & loading states
 │   │   │   ├── StatusBadge.jsx     # Dynamic status badge with color tokens
 │   │   │   ├── LoadingState.jsx    # Presentational loading spinner & skeleton views
+│   │   │   ├── ErrorState.jsx      # Error banner with retry trigger
+│   │   │   └── EmptyState.jsx      # Empty result message with call-to-action
+│   │   ├── jobs/
+│   │   │   ├── JobCard.jsx         # Card showing company, salary, tags, save toggle & link
+│   │   │   ├── CategoryCard.jsx    # Department card routing to /jobs?category=...
+│   │   │   ├── SearchBar.jsx       # Controlled keyword and location search
+│   │   │   └── FilterPanel.jsx     # Controlled filters (type, exp, category, salary, remote)
+│   │   └── dashboard/
+│   │       ├── DashboardCard.jsx   # Metrics KPI card component
+│   │       └── ApplicationCard.jsx # Application card with candidate details & status updater
+│   ├── pages/
+│   │   ├── Home.jsx                # Landing page with hero, search, categories & featured roles
+│   │   ├── JobsListing.jsx         # Jobs listing with URL query parameter synchronization
+│   │   ├── JobDetails.jsx          # Single job view with full requirements & perks
+│   │   ├── ApplyJob.jsx            # React Hook Form application submission
+│   │   ├── SavedJobs.jsx           # Bookmarked jobs management
+│   │   ├── MyApplications.jsx      # Joined applications list with status filtering
+│   │   ├── Dashboard.jsx           # Analytics, funnel metrics & recent submissions
+│   │   └── NotFound.jsx            # 404 fallback page
+│   ├── context/
+│   │   └── SavedJobsContext.jsx    # Global saved jobs state & persistence
+│   ├── hooks/
+│   │   └── useFetch.js             # Reusable async data fetching hook
+│   ├── App.jsx                     # Route definitions & shared layout shell
+│   ├── main.jsx                    # React root entry point with BrowserRouter
+│   └── index.css                   # Tailwind CSS imports and base styles
+├── db.json                         # Seed REST API database (jobs, applications, savedJobs)
+├── index.html                      # HTML entry point with Plus Jakarta Sans typography
+├── package.json                    # Project dependencies and run scripts
+├── vite.config.ts                  # Vite config with integrated JSON mock server plugin
+├── .env.example                    # Environment variable template
+└── README.md                       # Documentation & setup instructions
+
 # LCN Recruitment Portal
 
 LCN Recruitment Portal is a responsive job search and recruitment management application built with React and Vite. It supports job discovery, filtering, bookmarking, applications, recruitment status tracking, analytics, and a local REST-style mock backend.
