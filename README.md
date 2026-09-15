@@ -1,119 +1,5 @@
 # LCN Recruitment Portal
 
-A production-quality, fully responsive Job Portal and Recruitment Management System built with React, Vite, Tailwind CSS, Axios, React Router v6+, React Hook Form, and backed by a JSON Server REST mock backend (`db.json`).
-
----
-
-## 🌟 Key Features
-
-1. **Job Search & Advanced Multi-Parameter Filtering**
-   - Live query-parameter driven search by keywords, job titles, or companies.
-   - Granular filters by Category (Frontend, Backend, Full Stack, UI/UX, Data Science, DevOps, Mobile), Employment Type (Full-Time, Part-Time, Contract, Internship), Experience Level (Entry Level, Mid Level, Senior, Lead), and Minimum Annual Compensation ($60k - $160k+).
-   - Filter state is synchronized directly with URL query parameters for shareable search states.
-   - Quick search chips and sorting by Most Recent, Highest Salary, and Lowest Salary.
-
-2. **Rich Job Details & Direct Bookmarking**
-   - Deep-linkable job pages (`/jobs/:id`) showing complete role overview, itemized requirements, technical skills tags, compensation, perks, and recruiter status.
-   - Instant bookmark/save toggle that persists across the app via React Context and local caching.
-   - Single-click URL sharing.
-
-3. **Validated Application Submission Workflow**
-   - Dedicated application submission route (`/apply/:id`) powered by **React Hook Form**.
-   - Strict validation rules with inline error messages (email regex, phone number formatting, character limits, resume/portfolio URL format).
-   - Real-time submission via `applicationsApi.createApplication` (POST to `/applications`) with immediate confirmation and links to track candidacies.
-
-4. **Saved Jobs Management**
-   - Dedicated bookmarked roles page (`/saved-jobs`) with live counts in the navigation bar.
-   - Instant removal and direct application buttons.
-
-5. **Recruitment Status Pipeline & Application Tracking**
-   - Candidates track applications with dynamic status tags:
-     - `Applied` (Blue)
-     - `Under Review` (Amber)
-     - `Shortlisted` (Emerald)
-     - `Rejected` (Rose)
-   - Status update control allowing hiring managers or reviewers to test candidate lifecycle state changes live (`PATCH /applications/:id`).
-
-6. **Executive Recruitment Analytics Dashboard**
-   - Real-time KPI summary cards: Total Applied, Under Review, Shortlisted, Rejected.
-   - Pipeline conversion rate and visual status distribution bar.
-   - Quick-access preview cards for recent applications and saved jobs.
-
-7. **Error, Loading & Empty States**
-   - Dedicated presentational components (`LoadingState`, `ErrorState`, `EmptyState`) across every data-driven view with retry actions.
-
-8. **Dual REST Architecture (Local & Preview Resilient)**
-   - Fully compatible with `npx json-server --watch db.json --port 5000`.
-   - Includes Vite middleware integration so the app works seamlessly in cloud sandbox environments without requiring manual background processes.
-
----
-
-## 🛠️ Technologies Used
-
-- **Frontend Core**: React 19 (Functional Components & Hooks), Vite 6
-- **Routing**: React Router DOM (v7/v6+) with URL query params and route params
-- **Styling**: Tailwind CSS with responsive breakpoints and custom styling
-- **Form Management & Validation**: React Hook Form
-- **HTTP Client**: Axios with centralized API service layer and normalized error handling
-- **State Management**: React Context API (`SavedJobsContext`) with LocalStorage persistence
-- **Mock REST API**: JSON Server (`db.json`)
-- **Iconography**: Lucide React
-
----
-
-## 📁 Folder Structure
-
-```
-jprms/
-├── src/
-│   ├── api/
-│   │   ├── axiosClient.js          # Centralized Axios instance with base URL & error interceptor
-│   │   ├── jobsApi.js              # getJobs(params), getJobById(id)
-│   │   ├── applicationsApi.js      # getApplications(), createApplication(), updateApplicationStatus()
-│   │   └── savedJobsApi.js         # getSavedJobs(), saveJob(), removeSavedJob()
-│   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Navbar.jsx          # Responsive sticky nav with active link indicators & badges
-│   │   │   └── Footer.jsx          # Portal footer with links, categories & tech stack info
-│   │   ├── common/
-│   │   │   ├── Button.jsx          # Reusable button with variants, sizes & loading states
-│   │   │   ├── StatusBadge.jsx     # Dynamic status badge with color tokens
-│   │   │   ├── LoadingState.jsx    # Presentational loading spinner & skeleton views
-│   │   │   ├── ErrorState.jsx      # Error banner with retry trigger
-│   │   │   └── EmptyState.jsx      # Empty result message with call-to-action
-│   │   ├── jobs/
-│   │   │   ├── JobCard.jsx         # Card showing company, salary, tags, save toggle & link
-│   │   │   ├── CategoryCard.jsx    # Department card routing to /jobs?category=...
-│   │   │   ├── SearchBar.jsx       # Controlled keyword and location search
-│   │   │   └── FilterPanel.jsx     # Controlled filters (type, exp, category, salary, remote)
-│   │   └── dashboard/
-│   │       ├── DashboardCard.jsx   # Metrics KPI card component
-│   │       └── ApplicationCard.jsx # Application card with candidate details & status updater
-│   ├── pages/
-│   │   ├── Home.jsx                # Landing page with hero, search, categories & featured roles
-│   │   ├── JobsListing.jsx         # Jobs listing with URL query parameter synchronization
-│   │   ├── JobDetails.jsx          # Single job view with full requirements & perks
-│   │   ├── ApplyJob.jsx            # React Hook Form application submission
-│   │   ├── SavedJobs.jsx           # Bookmarked jobs management
-│   │   ├── MyApplications.jsx      # Joined applications list with status filtering
-│   │   ├── Dashboard.jsx           # Analytics, funnel metrics & recent submissions
-│   │   └── NotFound.jsx            # 404 fallback page
-│   ├── context/
-│   │   └── SavedJobsContext.jsx    # Global saved jobs state & persistence
-│   ├── hooks/
-│   │   └── useFetch.js             # Reusable async data fetching hook
-│   ├── App.jsx                     # Route definitions & shared layout shell
-│   ├── main.jsx                    # React root entry point with BrowserRouter
-│   └── index.css                   # Tailwind CSS imports and base styles
-├── db.json                         # Seed REST API database (jobs, applications, savedJobs)
-├── index.html                      # HTML entry point with Plus Jakarta Sans typography
-├── package.json                    # Project dependencies and run scripts
-├── vite.config.ts                  # Vite config with integrated JSON mock server plugin
-├── .env.example                    # Environment variable template
-└── README.md                       # Documentation & setup instructions
-
-# LCN Recruitment Portal
-
 LCN Recruitment Portal is a responsive job search and recruitment management application built with React and Vite. It supports job discovery, filtering, bookmarking, applications, recruitment status tracking, analytics, and a local REST-style mock backend.
 
 ## Features
@@ -121,17 +7,17 @@ LCN Recruitment Portal is a responsive job search and recruitment management app
 - Search jobs by keyword and location.
 - Filter by category, employment type, experience level, and minimum salary.
 - Sort jobs by newest, highest salary, or lowest salary.
-- View detailed job descriptions, requirements, benefits, skills, Indian locations, and salary bands.
-- Display salaries using Indian comma grouping without currency symbols, for example `1,50,000 - 1,85,000`.
-- Save and remove bookmarked jobs with shared application state and local persistence.
+- View job descriptions, requirements, benefits, skills, Indian locations, and salary bands.
+- Display salaries with Indian comma grouping and no currency symbols, for example `1,50,000 - 1,85,000`.
+- Save and remove bookmarked jobs with shared state and local persistence.
 - Submit validated applications with React Hook Form.
 - Track applications by `Applied`, `Under Review`, `Shortlisted`, and `Rejected` status.
 - Update application statuses from the applications page and dashboard.
 - Delete rejected applications after confirmation.
 - View recruitment metrics, pipeline counts, and recent applications on the dashboard.
-- Use retry, loading, and empty states across data-driven screens.
-- Open application routes directly or refresh them without receiving raw API JSON.
-- Use the footer technical-stack summary and educational disclaimer.
+- Use loading, error, empty, and retry states across data-driven screens.
+- Refresh application routes without receiving raw API JSON.
+- Use a compact footer technical-stack summary and educational disclaimer.
 
 ## Technology
 
@@ -147,21 +33,31 @@ LCN Recruitment Portal is a responsive job search and recruitment management app
 ## Project Structure
 
 ```text
-src/
-├── api/                 API clients for jobs, applications, and saved jobs
-├── components/
-│   ├── common/          Buttons, states, and status badges
-│   ├── dashboard/       Dashboard metrics and application cards
-│   ├── jobs/            Search, filters, job cards, and categories
-│   └── layout/          Navbar and footer
-├── context/             Saved jobs context and persistence
-├── hooks/               Reusable data-fetching hooks
-├── pages/               Home, jobs, details, applications, and dashboard views
-├── App.jsx              Shared layout and route definitions
-├── index.css            Global styles and Tailwind imports
-└── main.jsx             React entry point
-db.json                  Seed jobs, applications, and saved jobs
-vite.config.ts           Vite configuration and local API middleware
+Job-Recruitement-Management-System/
+│
+├── src/
+│   ├── api/                 API clients for jobs, applications, and saved jobs
+│   ├── components/          Shared UI, job, dashboard, and layout components
+│   ├── context/             Saved jobs context and persistence
+│   ├── hooks/               Reusable data-fetching hooks
+│   ├── pages/               Home, jobs, details, applications, and dashboard views
+│   ├── App.jsx              Shared layout and route definitions
+│   ├── index.css            Global styles and Tailwind imports
+│   └── main.jsx             React entry point
+├── db.json                  Seed jobs, applications, and saved jobs
+├── package.json             Project dependencies and npm scripts
+├── vite.config.ts           Vite configuration and local API middleware
+├── index.html               Browser document and metadata
+├── metadata.json            Project metadata
+├── README.md                Project documentation
+└── screenshots/             Application screenshots
+    ├── homepage.png
+    ├── jobs.png
+    ├── job_details.png
+    ├── apply_job.png
+    ├── saved_jobs.png
+    ├── applications.png
+    └── dashboard.png
 ```
 
 ## Getting Started
@@ -180,9 +76,9 @@ npm run dev
 
 The development server uses port `3000` by default. If that port is already occupied, Vite automatically selects the next available port and prints the URL in the terminal.
 
-### Optional standalone JSON Server
+The Vite configuration includes the local mock API middleware, so a separate backend is normally not required.
 
-The Vite configuration includes the mock API middleware, so a separate backend is normally not required. To run JSON Server independently instead:
+### Optional standalone JSON Server
 
 ```bash
 npm run server
@@ -215,8 +111,6 @@ The standalone API runs on `http://localhost:5000`.
 
 ## API Operations
 
-The API client uses these local endpoints:
-
 - `GET /jobs`
 - `GET /jobs/:id`
 - `GET /applications`
@@ -229,13 +123,23 @@ The API client uses these local endpoints:
 
 Application deletion is exposed in the UI only for applications whose status is `Rejected`.
 
+## Screenshots
+
+The `screenshots/` directory contains screenshots of the main application views:
+
+- Home page
+- Jobs directory
+- Job details
+- Application form
+- Saved jobs
+- Applications
+- Recruitment dashboard
+
 ## GitHub
 
-The project repository is:
+Repository: https://github.com/chinnamnaidu592/Job-Recruitement-Management-System
 
-https://github.com/chinnamnaidu592/Job-Recruitement-Management-System
-
-Typical workflow for future changes:
+To save and publish future changes:
 
 ```bash
 git add .
@@ -243,6 +147,9 @@ git commit -m "Describe your changes"
 git push
 ```
 
+## License
+
+MIT License. This project is suitable for educational and commercial recruitment-management use.
 
 ## Disclaimer
 
