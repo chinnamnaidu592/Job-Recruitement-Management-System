@@ -1,0 +1,6 @@
+{
+  "name": "LCN Recruitment Portal",
+  "description": "LCN Recruitment Portal for job search, applications, saved jobs, and recruitment analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
