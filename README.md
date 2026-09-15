@@ -32,6 +32,7 @@ LCN Recruitment Portal is a responsive job search and recruitment management app
 
 ## Project Structure
 
+```text
 jprms/
 ├── src/
 │   ├── api/
@@ -97,6 +98,7 @@ jprms/
 ├── vite.config.ts                        # Vite config with integrated JSON mock server plugin
 ├── .env.example                          # Environment variable template
 └── README.md                             # Documentation & setup instructions
+```
 
 ## Getting Started
 
