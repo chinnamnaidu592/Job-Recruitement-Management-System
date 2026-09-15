@@ -84,7 +84,7 @@ export const Home = () => {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
-              Discover Your Next <span className="text-indigo-600">Ghosting Experience</span> in Tech
+              Discover Your Next <span className="text-indigo-600">Career Opportunity</span> in Tech
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">

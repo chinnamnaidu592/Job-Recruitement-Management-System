@@ -83,7 +83,7 @@ export const Navbar = () => {
               id="nav-quick-search-btn"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition-all duration-150"
             >
-              <span>Ekkuva Jobs Kavala?</span>
+              <span>Explore more jobs</span>
             </Link>
           </div>
 
