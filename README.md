@@ -163,15 +163,33 @@ Application deletion is exposed in the UI only for applications whose status is 
 
 ## Screenshots
 
-The `screenshots/` directory contains screenshots of the main application views:
+### 1. Home Page
 
-- Home page
-- Jobs directory
-- Job details
-- Application form
-- Saved jobs
-- Applications
-- Recruitment dashboard
+![Home Page](screenshots/homepage.png)
+
+### 2. Jobs Search and Filtering
+
+![Jobs Search and Filtering](screenshots/jobs.png)
+
+### 3. Job Details
+
+![Job Details](screenshots/job_details.png)
+
+### 4. Job Application
+
+![Job Application](screenshots/apply_job.png)
+
+### 5. Saved Jobs
+
+![Saved Jobs](screenshots/saved_jobs.png)
+
+### 6. Application Tracking
+
+![Application Tracking](screenshots/applications.png)
+
+### 7. Recruitment Dashboard
+
+![Recruitment Dashboard](screenshots/dashboard.png)
 
 ## GitHub
 
